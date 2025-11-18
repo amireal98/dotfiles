@@ -1,0 +1,226 @@
+// =============================
+// === Waybar modules config ===
+// =============================
+{
+  "reload_style_on_change": true,
+  "layer": "background",
+  // "width": 990,
+  "spacing": 0,
+  "modules-left": [
+    "custom/menu",
+    "custom/separator",
+    "hyprland/workspaces",
+    "custom/separator",
+    // "hyprland/language",
+    "idle_inhibitor",
+    "custom/updates",
+    "custom/separator",
+    "hyprland/window"
+  ],
+  "modules-center": [
+  ],
+  "modules-right": [
+    "group/tray-expander",
+    "custom/separator",
+    "pulseaudio",
+    "backlight",
+    "custom/separator",
+    "network",
+    "battery",
+    "custom/separator",
+    "clock",
+    "custom/notification",
+    "custom/separator",
+    "custom/power"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+      "disable-scroll": false,
+      "format": "{icon}",
+      "format-icons": {
+        "default": "",
+        "1": "001",
+        "2": "002",
+        "3": "003",
+        "4": "004",
+        "5": "005",
+        "6": "006",
+        "7": "007",
+        "8": "008",
+        "9": "009",
+        "10": "010"
+        // "active": "O"
+     },
+     "persistent-workspaces": {
+           "*": 5
+    },
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1"
+  },
+  "hyprland/language": {
+      "format": "{}",
+      "format-en": "US",
+      "format-es": "LA",
+      "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+  },
+  "hyprland/window": {
+    "format": " {title}",
+    "max-length": 40,
+    "separate-outputs": false,
+    "rewrite": {
+      "(.*) ": " ",
+      "(.*)Zen Browser": " Zen",
+      "(.*) ~(.*)": "󰆍 Kitty",
+      "(.*)Kitty@Bedrock": "󰆍 Kitty",
+      "(.*)Nvim": " Neovim",
+      "(.*)Steam": " Steam",
+      "(.*)Vesktop": "󰙯 Discord"
+    },
+    "tooltip": false
+  },
+  "custom/notification": {
+      "tooltip": false,
+      "format": "{icon} ",
+      "format-icons": {
+        "notification": "",
+        "none": "",
+        "dnd-notification": "",
+        "dnd-none": "",
+        "inhibited-notification": "",
+        "inhibited-none": "",
+        "dnd-inhibited-notification": "",
+        "dnd-inhibited-none": ""
+      },        "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "escape": true,
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw"
+  },
+  "idle_inhibitor": {
+      "format": "{icon} ",
+      "format-icons": {
+          "activated": "",
+          "deactivated": ""
+      }
+  },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "custom/expand-icon",
+      "custom/bluetooth",
+      "tray"
+    ]
+  },
+  "custom/expand-icon": {
+    "format": " ",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 13
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%d/%m/%y}",
+    "on-click-right": "gnome-calendar",
+    "tooltip": false
+  },
+  "backlight": {
+    "format": "  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-click": "kitty --class float -e nvim ~/.config/hypr/hyprland.conf",
+    "scroll-step": 5,
+    "tooltip": false
+  },
+  "battery": {
+    "states": {
+        "warning": 15,
+        "critical": 8
+    },
+    "format": "{icon}",
+    "format-charging": " {icon}",
+    "format-plugged": " {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 3,
+    "on-click": "kitty --class float -e figlet soon",
+    "on-click-right": "kitty --class float -e figlet soon",
+    "tooltip-format": "Battery: {capacity}%"
+  },
+  "custom/updates": {
+    "format": "󰮯 {}",
+    "return-type": "json",
+    "format-icons": {
+        "has-updates": "󱍷",
+        "updated": "󰂪"
+    },
+    "on-click": "kitty --class float -e yay",
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+  },
+  "network": {
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": " ",
+    "tooltip-format": " ",
+    "format-linked": " ",
+    "format-disconnected": "󰤮 ",
+    "tooltip": false,
+    "on-click": "kitty --class float -e figlet soon",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "]
+  },
+  "pulseaudio": {
+    "scroll-step": 5,
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{icon}  {volume}%",
+    "format-bluetooth-muted": "{icon}  0%",
+    "format-muted": " 0%",
+    "format-source": " {volume}%",
+    "format-source-muted": " ",
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    },
+    "on-click": "pamixer --toggle-mute",
+    "on-click-right": "pavucontrol",
+    "tooltip-format": "{volume}%",
+    "tooltip": false
+  },
+  "custom/bluetooth": {
+    "format": "",
+    "on-click": "blueberry",
+    "tooltip": false
+  },
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "on-click": "kitty -e btop",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "  {}%",
+    "on-click": "kitty -e btop"
+  },
+  "custom/menu": {
+    "format": "",
+    "on-click": "kitty --class float -e nvim ~/.config/hypr/hyprland.conf",
+    "tooltip": false
+  },
+  "custom/power": {
+    "format": "",
+    "on-click": "wlogout",
+    "tooltip": false
+  }
+}
