@@ -3,7 +3,7 @@
    ============================== */
 /* @import url('../hypr/themes/nordic/waybar.css'); */
 
-*{
+* {
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
@@ -19,12 +19,12 @@ button {
 window#waybar {
   background-color: transparent;
   transition-property: background-color;
-  transition-duration: .5s;
+  transition-duration: 0.5s;
   margin: 0;
   padding: 0;
 }
 
-window#waybar>box {
+window#waybar > box {
   margin: 0px;
   margin-bottom: 0px;
   border-radius: 0px;
@@ -55,7 +55,7 @@ window#waybar>box {
   margin: 0px 1px;
   padding: 6px 5px;
   font-size: 14.5px;
-  font-family: 'CaskaydiaCove Nerd Font', 'Adwaita Sans', 'Noto Sans', sans-serif;
+  font-family: "Iosevka Nerd Font", "Adwaita Sans", "Noto Sans", sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
@@ -65,15 +65,17 @@ window#waybar>box {
 }
 
 #custom-separator {
-  opacity: .15;
-  font-size: .9rem;
+  opacity: 0.15;
+  font-size: 0.9rem;
   margin: 0px;
   padding: 0px 4px;
 }
 
 /* Tray modules */
 #custom-bluetooth,
-#tray { margin: 0px 7px }
+#tray {
+  margin: 0px 7px;
+}
 
 #custom-expand-icon {
   background: transparent;
@@ -84,7 +86,7 @@ window#waybar>box {
 #custom-expand-icon {
   margin: 0;
   padding: 0;
-  margin-right: 8px
+  margin-right: 8px;
 }
 
 #network {
@@ -97,7 +99,7 @@ window#waybar>box {
 }
 
 #language {
-  margin-left: 4px
+  margin-left: 4px;
 }
 
 #custom-menu {
@@ -107,11 +109,11 @@ window#waybar>box {
 
 #idle_inhibitor {
   padding-left: 6px;
-  padding-right: 4px
+  padding-right: 4px;
 }
 
 #custom-power {
-  padding-right: 15px
+  padding-right: 15px;
 }
 
 #custom-notification {
@@ -119,7 +121,7 @@ window#waybar>box {
 }
 
 #window {
-  opacity: .5
+  opacity: 0.5;
 }
 
 /* Styling */
@@ -134,7 +136,7 @@ window#waybar>box {
 #clock,
 #custom-notification,
 #custom-power {
-  transition: opacity .12s ease;
+  transition: opacity 0.12s ease;
 }
 
 #custom-menu:hover,
@@ -148,14 +150,20 @@ window#waybar>box {
 #clock:hover,
 #custom-notification:hover,
 #custom-power:hover {
-  opacity: .75
+  opacity: 0.75;
 }
 
 /* Battery states */
 #battery.warning:not(.charging),
-#battery.critical:not(.charging) { color: #ff8080 }
-#battery.plugged:not(.charging)  { color: #ffba6b }
-#battery.charging                { color: #88ff88 }
+#battery.critical:not(.charging) {
+  color: #ff8080;
+}
+#battery.plugged:not(.charging) {
+  color: #ffba6b;
+}
+#battery.charging {
+  color: #88ff88;
+}
 
 /* Hyprland/workspaces styling */
 #workspaces {
@@ -172,14 +180,25 @@ window#waybar>box {
   letter-spacing: 0px;
   box-shadow: none;
   background: transparent;
-  opacity: .5;
-  transition: color .08s ease, background .08s ease, opacity .08s ease;
+  opacity: 0.5;
+  transition:
+    color 0.08s ease,
+    background 0.08s ease,
+    opacity 0.08s ease;
 }
 
-#workspaces button.urgent              { color: #ff8080 }
-#workspaces button.empty               { opacity: .25    }
-#workspaces button.visible             { opacity: 1     }
-#workspaces button:hover:not(.visible) { opacity: .8    }
+#workspaces button.urgent {
+  color: #ff8080;
+}
+#workspaces button.empty {
+  opacity: 0.25;
+}
+#workspaces button.visible {
+  opacity: 1;
+}
+#workspaces button:hover:not(.visible) {
+  opacity: 0.8;
+}
 
 tooltip {
   border-radius: 6px;

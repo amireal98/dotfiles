@@ -15,10 +15,9 @@
     "idle_inhibitor",
     "custom/updates",
     "custom/separator",
-    "hyprland/window"
+    "hyprland/window",
   ],
-  "modules-center": [
-  ],
+  "modules-center": [],
   "modules-right": [
     "group/tray-expander",
     "custom/separator",
@@ -31,37 +30,37 @@
     "clock",
     "custom/notification",
     "custom/separator",
-    "custom/power"
+    "custom/power",
   ],
   // Modules configuration
   "hyprland/workspaces": {
-      "disable-scroll": false,
-      "format": "{icon}",
-      "format-icons": {
-        "default": "",
-        "1": "HMN",
-        "2": "WWW",
-        "3": "DEV",
-        "4": "WRK",
-        "5": "GMG",
-        "6": "SYS",
-        "7": "007",
-        "8": "008",
-        "9": "009",
-        "10": "010"
-        // "active": "O"
-     },
-     "persistent-workspaces": {
-           "*": 5
+    "disable-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "001",
+      "2": "002",
+      "3": "003",
+      "4": "004",
+      "5": "005",
+      "6": "006",
+      "7": "007",
+      "8": "008",
+      "9": "009",
+      "10": "010",
+      // "active": "O"
+    },
+    "persistent-workspaces": {
+      "*": 5,
     },
     "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1"
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
   },
   "hyprland/language": {
-      "format": "{}",
-      "format-en": "US",
-      "format-es": "LA",
-      "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
+    "format": "{}",
+    "format-en": "US",
+    "format-es": "LA",
+    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
   },
   "hyprland/window": {
     "format": " {title}",
@@ -74,73 +73,70 @@
       "(.*)Kitty@Bedrock": "󰆍 Kitty",
       "(.*)Nvim": " Neovim",
       "(.*)Steam": " Steam",
-      "(.*)Vesktop": "󰙯 Discord"
+      "(.*)Vesktop": "󰙯 Discord",
     },
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/notification": {
-      "tooltip": false,
-      "format": "{icon} ",
-      "format-icons": {
-        "notification": "",
-        "none": "",
-        "dnd-notification": "",
-        "dnd-none": "",
-        "inhibited-notification": "",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "",
-        "dnd-inhibited-none": ""
-      },        "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "escape": true,
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw"
+    "tooltip": false,
+    "format": "{icon} ",
+    "format-icons": {
+      "notification": "",
+      "none": "",
+      "dnd-notification": "",
+      "dnd-none": "",
+      "inhibited-notification": "",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "escape": true,
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
   },
   "idle_inhibitor": {
-      "format": "{icon} ",
-      "format-icons": {
-          "activated": "",
-          "deactivated": ""
-      }
+    "format": "{icon} ",
+    "format-icons": {
+      "activated": "",
+      "deactivated": "",
+    },
   },
   "group/tray-expander": {
     "orientation": "inherit",
     "drawer": {
       "transition-duration": 300,
-      "children-class": "tray-group-item"
+      "children-class": "tray-group-item",
     },
-    "modules": [
-      "custom/expand-icon",
-      "custom/bluetooth",
-      "tray"
-    ]
+    "modules": ["custom/expand-icon", "custom/bluetooth", "tray"],
   },
   "custom/expand-icon": {
     "format": " ",
-    "tooltip": false
+    "tooltip": false,
   },
   "tray": {
     "icon-size": 16,
-    "spacing": 13
+    "spacing": 13,
   },
   "clock": {
     "format": "{:%I:%M %p}",
     "format-alt": "{:%d/%m/%y}",
     "on-click-right": "gnome-calendar",
-    "tooltip": false
+    "tooltip": false,
   },
   "backlight": {
     "format": "  {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
     "on-click": "kitty --class float -e nvim ~/.config/hypr/hyprland.conf",
     "scroll-step": 5,
-    "tooltip": false
+    "tooltip": false,
   },
   "battery": {
     "states": {
-        "warning": 15,
-        "critical": 8
+      "warning": 15,
+      "critical": 8,
     },
     "format": "{icon}",
     "format-charging": " {icon}",
@@ -149,18 +145,18 @@
     "interval": 3,
     "on-click": "kitty --class float -e figlet soon",
     "on-click-right": "kitty --class float -e figlet soon",
-    "tooltip-format": "Battery: {capacity}%"
+    "tooltip-format": "Battery: {capacity}%",
   },
   "custom/updates": {
     "format": "󰮯 {}",
     "return-type": "json",
     "format-icons": {
-        "has-updates": "󱍷",
-        "updated": "󰂪"
+      "has-updates": "󱍷",
+      "updated": "󰂪",
     },
-    "on-click": "kitty --class float -e yay",
+    "on-click": "kitty --class float -e yay -Syu --noconfirm",
     "exec-if": "which waybar-module-pacman-updates",
-    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300",
   },
   "network": {
     "format": "{icon}",
@@ -170,8 +166,8 @@
     "format-linked": " ",
     "format-disconnected": "󰤮 ",
     "tooltip": false,
-    "on-click": "kitty --class float -e figlet soon",
-    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "]
+    "on-click": "kitty --class float -e sudo nmtui",
+    "format-icons": ["󰤯 ", "󰤟 ", "󰤢 ", "󰤥 ", "󰤨 "],
   },
   "pulseaudio": {
     "scroll-step": 5,
@@ -182,45 +178,45 @@
     "format-source": " {volume}%",
     "format-source-muted": " ",
     "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
-        "default": ["", "", ""]
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""],
     },
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
     "tooltip-format": "{volume}%",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/bluetooth": {
     "format": "",
     "on-click": "blueberry",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/separator": {
     "format": "|",
-    "tooltip": false
+    "tooltip": false,
   },
   "cpu": {
     "format": "  {usage}%",
     "on-click": "kitty -e btop",
-    "tooltip": false
+    "tooltip": false,
   },
   "memory": {
     "format": "  {}%",
-    "on-click": "kitty -e btop"
+    "on-click": "kitty -e btop",
   },
   "custom/menu": {
-    "format": "",
+    "format": "",
     "on-click": "kitty --class float -e nvim ~/.config/hypr/hyprland.conf",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/power": {
     "format": "",
     "on-click": "wlogout",
-    "tooltip": false
-  }
+    "tooltip": false,
+  },
 }
