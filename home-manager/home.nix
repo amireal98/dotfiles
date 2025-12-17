@@ -12,7 +12,8 @@
   ];
 
   home.packages = [
-    pkgs.neofetch
+    pkgs.swww
+    pkgs.waybar
   ];
 
   home.file = {
