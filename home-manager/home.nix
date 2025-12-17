@@ -9,11 +9,12 @@
 
   imports = [
     ./dotfiles.nix
+
+    stylix.homeModules.stylix
   ];
 
   home.packages = [
     pkgs.swww
-    pkgs.waybar
   ];
 
   home.file = {
