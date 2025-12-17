@@ -10,7 +10,7 @@
   imports = [
     ./dotfiles.nix
 
-    stylix.homeModules.stylix
+    inputs.stylix.homeModules.stylix
   ];
 
   home.packages = [
